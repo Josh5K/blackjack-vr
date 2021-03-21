@@ -1,0 +1,190 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+    <script src="./components/position.js"></script>
+  </head>
+  <body>
+    <a-scene>
+
+      <a-assets>
+        <img id="cardback" src="assets/cardback.jpg">
+        <img id="floor" src="assets/carpet.jpg">
+        <img id="wall" src="assets/background.jpeg">
+        <img id="roof" src="assets/tile.jfif">
+
+        <a-asset-item id="table-obj" src="assets/table.obj"></a-asset-item>
+        <a-asset-item id="table-mtl" src="assets/table.mtl"></a-asset-item>
+        <a-asset-item id="player" src="assets/scene.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-sky src="#wall" color="#EBEBEB"></a-sky>
+
+      <a-entity id="camera" camera look-controls wasd-controls position="0 2.6 0" cursor="rayOrigin: mouse" position-listener>
+        <a-gui-cursor id="cursor"
+          raycaster="objects: [gui-interactable]"
+          fuse="true"
+          fuse-timeout="1000"
+          color="#ECEFF1"
+          active-color="#607D8B"
+          design="ring"
+          >
+        </a-gui-cursor>
+      </a-entity>
+      <a-entity id="dealer-score" text="value: Dealer: 0" scale="10 10 10" position="-6.5 -.5 -17.5" rotation="-90 180 0"></a-entity>
+      <a-plane id="dealer-hidden" src="#cardback" height="1" position="-3 -.5 -16.5" rotation="-90 0 0" width=".75"></a-plane>
+
+      <a-entity obj-model="obj: #table-obj; mtl: #table-mtl" scale="8 5 8" position="0 -7 -10 "></a-entity>
+      <a-gui-button
+        width=".85"
+        height=".85"
+        base-depth="0.025"
+        depth="0.1"
+        gap="0.1"
+        onclick="SendStart"
+        key-code="KeyX"
+        value="Start game!"
+        font-size="0.25"
+        margin="0 0 0.05 0"
+        position="-3 -.5 -4"
+        rotation="-90 0 0"
+        font-color="black"
+        bevel="true">
+      </a-gui-button>
+      <a-gui-button
+        width=".85"
+        height=".85"
+        base-depth="0.025"
+        depth="0.1"
+        gap="0.1"
+        onclick="SendHit"
+        key-code="KeyX"
+        value="Hit me!"
+        font-size="0.25"
+        margin="0 0 0.05 0"
+        position="-2 -.5 -4"
+        rotation="-90 0 0"
+        font-color="black"
+        bevel="true">
+      </a-gui-button>
+      <a-gui-button
+        width=".85"
+        height=".85"
+        base-depth="0.025"
+        depth="0.1"
+        gap="0.1"
+        onclick="SendStand"
+        key-code="KeyX"
+        value="Stand!"
+        font-size="0.25"
+        margin="0 0 0.05 0"
+        position="-1 -.5 -4"
+        rotation="-90 0 0"
+        font-color="black"
+        bevel="true">
+      </a-gui-button>
+
+      <a-gui-button
+      width=".85"
+      height=".85"
+      base-depth="0.025"
+      depth="0.1"
+      gap="0.1"
+      onclick="SendStart"
+      key-code="KeyX"
+      value="Start game!"
+      font-size="0.25"
+      margin="0 0 0.05 0"
+      position="5 -.5 -6"
+      rotation="-90 0 90"
+      font-color="black"
+      bevel="true">
+    </a-gui-button>
+    <a-gui-button
+      width=".85"
+      height=".85"
+      base-depth="0.025"
+      depth="0.1"
+      gap="0.1"
+      onclick="SendHit"
+      key-code="KeyX"
+      value="Hit me!"
+      font-size="0.25"
+      margin="0 0 0.05 0"
+      position="5 -.5 -7"
+      rotation="-90 0 90"
+      font-color="black"
+      bevel="true">
+    </a-gui-button>
+    <a-gui-button
+      width=".85"
+      height=".85"
+      base-depth="0.025"
+      depth="0.1"
+      gap="0.1"
+      onclick="SendStand"
+      key-code="KeyX"
+      value="Stand!"
+      font-size="0.25"s
+      margin="0 0 0.05 0"
+      position="5 -.5 -8"
+      rotation="-90 0 90"
+      font-color="black"
+      bevel="true">
+    </a-gui-button>
+
+    <a-gui-button
+    width=".85"
+    height=".85"
+    base-depth="0.025"
+    depth="0.1"
+    gap="0.1"
+    onclick="SendStart"
+    key-code="KeyX"
+    value="Start game!"
+    font-size="0.25"
+    margin="0 0 0.05 0"
+    position="-5.5 -.5 -13.5"
+    rotation="-90 0 -90"
+    font-color="black"
+    bevel="true">
+  </a-gui-button>
+  <a-gui-button
+    width=".85"
+    height=".85"
+    base-depth="0.025"
+    depth="0.1"
+    gap="0.1"
+    onclick="SendHit"
+    key-code="KeyX"
+    value="Hit me!"
+    font-size="0.25"
+    margin="0 0 0.05 0"
+    position="-5.5 -.5 -12.5"
+    rotation="-90 0 -90"
+    font-color="black"
+    bevel="true">
+  </a-gui-button>
+  <a-gui-button
+    width=".85"
+    height=".85"
+    base-depth="0.025"
+    depth="0.1"
+    gap="0.1"
+    onclick="SendStand"
+    key-code="KeyX"
+    value="Stand!"
+    font-size="0.25"s
+    margin="0 0 0.05 0"
+    position="-5.5 -.5 -11.5"
+    rotation="-90 0 -90"
+    font-color="black"
+    bevel="true">
+  </a-gui-button>
+  <a-plane src="#floor" height="200" width="200" rotation="-90 0 0" position="0 -8 0" repeat="10 10"></a-plane>
+
+
+    </a-scene>
+    <script src="main.js"></script>
+  </body>
+</html>
