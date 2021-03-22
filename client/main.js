@@ -1,4 +1,4 @@
-const wsUri = "ws://blackjack.creatorsclub.net:3000/echo";
+const wsUri = "wss://blackjack.creatorsclub.net/ws";
 const scene = document.querySelector("a-scene");
 var playerPositions;
 var dealerPositions;
