@@ -105,6 +105,12 @@ Everytime I build an app I look back at what I could of done better. Here is no 
 * Serve the static files from the express server.
 * Migrate more of the client side logic to custom Aframe components.
 
+## How did I deploy the app?
+
+The app is deployed as 2 docker containers and proxied through a Nginx server.
+
+![image](https://user-images.githubusercontent.com/36429071/111930320-a1d0d280-8a86-11eb-9910-757b0d0417fa.png)
+
 ## Known Bugs
 
 Bugs in software? :astonished:
