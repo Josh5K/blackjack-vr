@@ -94,7 +94,7 @@ There are a lot of ideas I have for a completed version of this game. However th
 * Fix game rules to be more aligned with blackjack
 * Add game state to HUD
 * Server Side movement w/ Client Side predictions
-
+* The ability to split your cards
 
 ## What could I of done better?
 
@@ -115,6 +115,4 @@ The app is deployed as 2 docker containers and proxied through a Nginx server.
 
 Bugs in software? :astonished:
 
-* If a player disconnects their model is not removed from the clients state.
 * Score will sometimes be miscalculated if user has 2 aces
-* Client will attempt to send positon messages to websocket before connection is upgraded.
