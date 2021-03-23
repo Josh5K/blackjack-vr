@@ -5,7 +5,8 @@ export enum UpdateType {
   Dealer = "Dealer",
   Win = "Win",
   GameStarting = "GameStarting",
-  PlayerPosition = "PlayerPosition"
+  PlayerPosition = "PlayerPosition",
+  Disconnect = "Disconnect"
 }
 
 export class Update {

@@ -18,6 +18,9 @@ function init() {
 
 function onOpen(evt) {
   console.log("CONNECTED");
+  document.getElementById('camera').addEventListener('positionChanged', e => {
+    websocket.send(JSON.stringify({"type": "playerposition", "value": e.detail}))
+  });
   SendJoin()
 }
 
@@ -59,12 +62,15 @@ function handleMessage(message) {
       EndGame(message);
       break;
     case "ServerFull":
-      console.log(message.value)
+      alert(message.value)
       break;
     case "GameStarting":
       GameStarting();
     case "PlayerPosition":
       updatePlayerPositon(message)
+      break;
+    case "Disconnect":
+      removePlayerModel(message.value)
       break;
     default:
       break;
@@ -328,8 +334,9 @@ function CreatePlayerModel(id) {
   }
 }
 
-document.getElementById('camera').addEventListener('positionChanged', e => {
-  websocket.send(JSON.stringify({"type": "playerposition", "value": e.detail}))
-});
+function removePlayerModel(id) {
+  let playerModel = document.getElementById(`player-model-${id}`)
+  playerModel.parentNode.removeChild(playerModel);
+}
 
 window.addEventListener("load", init, false);

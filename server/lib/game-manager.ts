@@ -8,7 +8,6 @@ export class GameManager {
   players: Player[] = [];
   dealer: Player = new Player("dealer", null);
   deck: Deck = new Deck();
-  playerMoveSpeed:number = .5;
 
   public CreatePlayer(ws:any) {
     console.log("Creating Player")
@@ -20,6 +19,9 @@ export class GameManager {
     console.log("Deleting Player")
     var playerIndex = this.players.findIndex(x => x.id == id);
     this.players.splice(playerIndex, 1)
+
+    var disconnectUpdate:Update = new Update(UpdateType.Disconnect, id, id)
+    wss.broadcast(JSON.stringify(disconnectUpdate))
   }
 
   public startGame() {
@@ -60,7 +62,7 @@ export class GameManager {
     }
     else {
       var player:Player = this.players.find(x => x.id === playerID)!;
-      if(!player.standing) {
+      if(!player.standing && player.cardsValue() < 21) {
         player.cards.push(this.deck.deal()!)
         var playerUpdate:Update = new Update(UpdateType.Players, player.id, player)
         wss.broadcast(JSON.stringify(playerUpdate, replacer));
