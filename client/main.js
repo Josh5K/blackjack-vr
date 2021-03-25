@@ -1,4 +1,5 @@
-const wsUri = "wss://blackjack.creatorsclub.net/ws";
+//const wsUri = "wss://blackjack.creatorsclub.net/ws";
+const wsUri = "ws://127.0.0.1:3000/ws";
 const scene = document.querySelector("a-scene");
 var playerPositions;
 var dealerPositions;
@@ -245,14 +246,10 @@ function getCardsScore(cards, hiddenCard="") {
   }
 
   if(score > 21) {
-    score = 0;
-
-    if(hiddenCard != "") {
-      score += getNumericValue(hiddenCard)
-    }
-
     cards.forEach(card => {
-      score += getNumericValue(card, 1);
+      if(card.value =='A' && score > 21) {
+        score -= 10;
+      }
     });
   }
 

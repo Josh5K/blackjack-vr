@@ -113,6 +113,4 @@ The app is deployed as 2 docker containers and proxied through a Nginx server.
 
 ## Known Bugs
 
-Bugs in software? :astonished:
-
-* Score will sometimes be miscalculated if user has 2 aces
+No Known bugs :tada:

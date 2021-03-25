@@ -29,13 +29,12 @@ export class Player {
     score += this.hiddenCard.getNumericValue();
 
     if(score > 21) {
-      score = 0;
       cards.forEach(card => {
-        score += card.getNumericValue(1);
+        if(card.value =='A' && score > 21) {
+          score -= 10;
+        }
       });
-      score += this.hiddenCard.getNumericValue(1);
     }
-
     return score
   }
 
