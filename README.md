@@ -86,8 +86,8 @@ export class Update {
 There are a lot of ideas I have for a completed version of this game. However the scope of the project is a proof of concept. To allow myself to reach a completed proof of concept state they were left out.
 
 * User management - Currently there is no user management if a user disconnects from the websocket we forget about them and treat them as a new user if they were to reconnect.
-* State management - Storing long term data could allow us to create features such as user statistics, high scores etc..
-* Player Balance - Allow players to bet in game currency on their rounds.
+* State management - Storing long term data could allow us to create features such as user statistics, high scores, player balance etc..
+* Player Betting - Allow players to bet in game currency on their rounds.
 * Lobby/room system - Allows players to load in to seperate rooms and have multiple games going at once.
 * Improve player models
 * Card Animations
@@ -113,4 +113,6 @@ The app is deployed as 2 docker containers and proxied through a Nginx server.
 
 ## Known Bugs
 
-No Known bugs :tada:
+Bugs in software? :astonished:
+
+* If a user presses hit multiple times in quick succession the server may draw them over 21.
